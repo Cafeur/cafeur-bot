@@ -18,7 +18,7 @@ bot.on('ready', () =>{
     console.log("Bot Prêt");
 });
 
-bot.login(process.env.TOKEN);
+bot.login('NDU5NDMyMjU1MTkwODU5Nzc2.Dg2HPg.j2n3fc7cZwuwylN_F6Ex9pf7zP0');
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Membres");
@@ -117,8 +117,31 @@ if (message.content === prefix + "xpstat"){
 }
 
 if (message.content === prefix + "help"){
-     message.channel.sendMessage("Voici les commandes :\n - /help Pour afficher l'interface help \n - Pour toutes commandes vous devez rajoutez le prefix : / \n  -/stats pour voir vos statistiques \n -Bientôt un shop spéciale, commandes admin")
+    var help_embed = new Discord.RichEmbed()
+    .setColor("#FE2E64")
+    .setTitle("Commande du bot :")
+    .setDescription("Je suis un bot trop beau voici mes commandes :")
+    .addField("Aide", "Affiche les commandes")
+    .addField("Bonjour / Bonsoir", "Le bot répond !")
+    .addField("stats", "le bot envois vous info !")
+    .addField("info", "Le bot envois les informations")
+    .setFooter("Crée par Cafeur")
+    message.channel.sendMessage(help_embed);
+     //message.channel.sendMessage("Voici les commandes :\n - /help Pour afficher l'interface help \n - Pour toutes commandes vous devez rajoutez le prefix : / \n  -/stats pour voir vos statistiques \n -Bientôt un shop spéciale, commandes admin")
     console.log('help')
+  }
+
+  if(message.content === prefix + "info") {
+      var info_embed = new Discord.RichEmbed()
+      .setColor("#F3F781")
+      .setTitle("Information du Bot/Serveur :")
+      .addField(" :robot: Nom :", `${bot.user.tag}`, true)
+      .addField(" Id :id:", `${bot.user.id}`)
+      .addField("Nombres de membres :", message.guild.members.size)
+      .addField("Nombre de catégories/Salon ", message.guild.channels.size)
+      .setFooter("Bot Crée par Cafeur")
+    message.channel.sendMessage(info_embed)
+    console.log("Info demandée")
   }
 
 });
