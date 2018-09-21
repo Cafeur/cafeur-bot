@@ -121,11 +121,10 @@ if (message.content === prefix + "help"){
     .setColor("#FE2E64")
     .setTitle("Commande du bot :")
     .setDescription("Je suis un bot trop beau voici mes commandes :")
-    .addField("/help", "Affiche les commandes")
+    .addField("Aide", "Affiche les commandes")
     .addField("Bonjour / Bonsoir", "Le bot répond !")
-    .addField("/stats", "le bot envois vous info !")
-    .setThumbnail(message.author.avatarURL)
-    .addField("/info", "Le bot envois les informations")
+    .addField("stats", "le bot envois vous info !")
+    .addField("info", "Le bot envois les informations")
     .setFooter("Crée par Cafeur")
     message.channel.sendMessage(help_embed);
      //message.channel.sendMessage("Voici les commandes :\n - /help Pour afficher l'interface help \n - Pour toutes commandes vous devez rajoutez le prefix : / \n  -/stats pour voir vos statistiques \n -Bientôt un shop spéciale, commandes admin")
@@ -144,6 +143,17 @@ if (message.content === prefix + "help"){
     message.channel.sendMessage(info_embed)
     console.log("Info demandée")
   }
+
+if(message.content.startsWith(prefix + "clear")) {
+    if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission ");
+
+    let args = message.content.split(" ").slice(1);
+
+    if(!args[0]) return message.channel.send("Tu doit préciser le nombre de message a supprimé")
+    message.channel.bulkDelete(args[0]).then(() => {
+        message.channel.send(`${args[0]} message on été supprimés`);
+    })
+}
 
 });
 
