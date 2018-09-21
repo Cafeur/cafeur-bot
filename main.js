@@ -18,7 +18,7 @@ bot.on('ready', () =>{
     console.log("Bot Prêt");
 });
 
-bot.login('NDU5NDMyMjU1MTkwODU5Nzc2.Dg2HPg.j2n3fc7cZwuwylN_F6Ex9pf7zP0');
+bot.login('');
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Membres");
