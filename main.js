@@ -128,6 +128,7 @@ if (message.content === prefix + "help"){
     .addField("/info", "Le bot envois les informations")
     .addField("/dog", "Vous affiche des GIF de chien (aléatoire)")
     .addField("/cat", "Vous affiche des GIF de chat (aléatoire)")
+    .addField("/clonewars", "Vous affiche des GIF de clones (aléatoire)")
     .addField("/clear", "COMMANDES ADMIN: Vous permet de clear les messages")
     .setFooter("Crée par Cafeur")
     message.channel.sendMessage(help_embed);
