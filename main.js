@@ -120,11 +120,15 @@ if (message.content === prefix + "help"){
     var help_embed = new Discord.RichEmbed()
     .setColor("#FE2E64")
     .setTitle("Commande du bot :")
+    .setThumbnail(message.author.avatarURL)
     .setDescription("Je suis un bot trop beau voici mes commandes :")
     .addField("Aide", "Affiche les commandes")
     .addField("Bonjour / Bonsoir", "Le bot répond !")
-    .addField("stats", "le bot envois vous info !")
-    .addField("info", "Le bot envois les informations")
+    .addField("/stats", "le bot envois vous info !")
+    .addField("/info", "Le bot envois les informations")
+    .addField("/dog", "Vous affiche des GIF de chien (aléatoire)")
+    .addField("/cat", "Vous affiche des GIF de chat (aléatoire)")
+    .addField("/clear", "COMMANDES ADMIN: Vous permet de clear les messages")
     .setFooter("Crée par Cafeur")
     message.channel.sendMessage(help_embed);
      //message.channel.sendMessage("Voici les commandes :\n - /help Pour afficher l'interface help \n - Pour toutes commandes vous devez rajoutez le prefix : / \n  -/stats pour voir vos statistiques \n -Bientôt un shop spéciale, commandes admin")
@@ -143,6 +147,63 @@ if (message.content === prefix + "help"){
     message.channel.sendMessage(info_embed)
     console.log("Info demandée")
   }
+
+  if(message.content.startsWith(prefix + "dog")) {
+
+        var chien = [
+            "https://media.giphy.com/media/l1J9FiJzykshjePiU/giphy.gif",
+            "https://media.giphy.com/media/l1J9FiJzykshjePiU/giphy.gif",
+            "https://media.giphy.com/media/1Zu1LMKF4T71FQeeZX/giphy.gif",
+            "https://media.giphy.com/media/1Zu1LMKF4T71FQeeZX/giphy.gif"
+        ];
+
+        var gif = chien[Math.floor(Math.random() * chien.length)];
+
+        var dog_embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTitle(' :dog: Chien :')
+        .setImage(gif)
+        .setFooter('Crée Par Cafeur aidé par Kioxi')
+        message.channel.send(dog_embed);
+  }
+
+  if(message.content.startsWith(prefix + "cat")) {
+
+    var chat = [
+        "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+        "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
+        "https://media.giphy.com/media/33OrjzUFwkwEg/giphy.gif",
+        "https://media.giphy.com/media/p4xp4BjHIdane/giphy.gif"
+    ];
+
+    var gif = chat[Math.floor(Math.random() * chat.length)];
+
+    var cat_embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setTitle(' :cat: Chat :')
+    .setImage(gif)
+    .setFooter('Crée Par Cafeur aidé par Kioxi')
+    message.channel.send(cat_embed);
+}
+
+if(message.content.startsWith(prefix + "clonewars")) {
+
+    var wars = [
+        "https://media.giphy.com/media/Y8X3efsILKD3G/giphy.gif",
+        "https://media.giphy.com/media/2iPxilu8q8cqA/giphy.gif",
+        "https://media.giphy.com/media/5PnoadUQvwZxu/giphy.gif",
+        "https://media.giphy.com/media/SwWArXxnlG6Bi/giphy.gif"
+    ];
+
+    var gif = wars[Math.floor(Math.random() * wars.length)];
+
+    var wars_embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setTitle(' :clone:  CloneWars :')
+    .setImage(gif)
+    .setFooter('Crée Par Cafeur aidé par Kioxi')
+    message.channel.send(wars_embed);
+}
 
 if(message.content.startsWith(prefix + "clear")) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission ");
