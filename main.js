@@ -18,7 +18,7 @@ bot.on('ready', () =>{
     console.log("Bot Prêt");
 });
 
-bot.login('');
+bot.login(process.env.TOKEN);
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.find("name", "Membres");
