@@ -1,20 +1,18 @@
 {
-  "name": "cafeur-bot",
+  "name": "lpdgbot",
   "version": "1.0.0",
-  "description": "Bot discord",
-  "main": "main.js",
-  "dependencies": {
-    "discord.js": "^11.3.2",
-    "express": "^4.16.3",
-    "lowdb": "^1.0.0"
-  },
-  "devDependencies": {},
+  "description": "Bot Discord",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "blabla"
-  ],
   "author": "Cafeur",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "common-tags": "^1.8.0",
+    "discord.js": "^11.4.2",
+    "lowdb": "^1.0.0",
+    "moment": "^2.24.0",
+    "random-puppy": "^1.1.0"
+  }
 }
